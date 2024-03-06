@@ -1,12 +1,12 @@
-#vosk for speech recognition
-#sounddevice for use of microphone on the pc
-#pyttsx3 for text to speech
-#openai for making use of the chatgpt engine (requires openai API key)
+#vosk for speech recognition (#pip install vosk)
+#sounddevice for use of microphone on the pc (#pip install sounddevice)
+#pyttsx3 for text to speech (#pip install py3-tts)
+#openai for making use of the chatgpt engine (requires openai API key) - (#pip install openai)
+#argparse (#pip install argparse)
 
 import argparse
 import queue
 import sys
-# import objc
 import json
 import sounddevice as sd
 import openai
