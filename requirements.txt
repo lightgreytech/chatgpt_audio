@@ -149,6 +149,7 @@ pyobjc-framework-VideoToolbox==9.0.1
 pyobjc-framework-Virtualization==9.0.1
 pyobjc-framework-Vision==9.0.1
 pyobjc-framework-WebKit==9.0.1
+python-dotenv==1.0.1
 requests==2.31.0
 six==1.16.0
 sniffio==1.3.1

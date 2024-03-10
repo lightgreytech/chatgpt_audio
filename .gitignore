@@ -1,3 +1,4 @@
 apikey.txt
 venv
+.env
 get_supported_drivers.py

@@ -9,8 +9,13 @@ import queue
 import sys
 import json
 import sounddevice as sd
-import openai
+from dotenv import find_dotenv, load_dotenv
+dotenv_path = find_dotenv()
+load_dotenv(dotenv_path)
+# from dotenv import load_dotenv
+from openai import OpenAI
 from vosk import Model, KaldiRecognizer, SetLogLevel
+import os
 
 import pyttsx3
 
@@ -98,10 +103,15 @@ if __name__ == "__main__":
                     text = json.loads(rec.Result())["text"]
                     if text != "":
                         print(text)
-                        openai.api_key_path = "apikey.txt"  # here, provide the path to your openAI key
-                        response = openai.Completion.create(
-                            model="text-davinci-003",  # this is the ChatGPT3 model
-                            prompt=text,
+                        client = OpenAI(
+                            api_key = os.environ.get("OPENAPI_API_KEY") # here, provide the path to your openAI key
+                        )
+                        # response = openai.Completion.create(
+                        response = client.chat.completions.create(
+                            # model="text-davinci-003",  # this is the ChatGPT3 model
+                            model="gpt-3.5-turbo",
+                            messages=text,
+                            # prompt=text,
                             temperature=0.7,
                             max_tokens=200,  # adjust this to control length of response; note the higher this number, the more credit is used up
                             top_p=1,
